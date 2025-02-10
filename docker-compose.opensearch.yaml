@@ -20,6 +20,7 @@ services:
       - cluster.name=opensearch-cluster
       - node.name=opensearch-node
       - discovery.type=single-node
+      - plugins.security.audit.type=internal_opensearch
       - bootstrap.memory_lock=true
       - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m"
       - VIRTUAL_HOST=$DDEV_HOSTNAME

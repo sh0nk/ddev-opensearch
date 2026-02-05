@@ -2,8 +2,8 @@
 
 This addon sets up two services in your [DDEV](https://ddev.com) project.
 
-- [OpenSearch](https://opensearch.org/) service (Docker Image: `opensearchproject/opensearch:latest`)
-- [OpenSearch Dashboards](https://opensearch.org/) service (Docker Image: `opensearchproject/opensearch-dashboards:latestopensearch:latest`)
+- [OpenSearch](https://opensearch.org/) service (Docker Image: `opensearchproject/opensearch:2.18.0`)
+- [OpenSearch Dashboards](https://opensearch.org/) service (Docker Image: `opensearchproject/opensearch-dashboards:latest`)
 
 We activate these plugins out-of-the-box:
 - analysis-phonetic
@@ -21,8 +21,10 @@ Update the file `.ddev/docker-compose.opensearch.yaml` for a compatible Dashboar
 
 To modify the build of the used OpenSearch image for the container there are dotenv variables available.
 
-- `OPENSEARCH_TAG` - The version of the OpenSearch image to use. Default: `latest`
+- `OPENSEARCH_TAG` - The version of the OpenSearch image to use. Default: `2.18.0`
 - `OPENSEARCH_DASHBOARDS_TAG` - The version of the OpenSearch Dashboards image to use. Default: `latest`
+- `SUDACHI_PLUGIN_VERSION` - The version of the Sudachi OpenSearch plugin to use. Default: `3.3.0`
+- `SUDACHI_DICT_VERSION` - The version of the Sudachi dictionary to use. Default: `20241021`
 - `INSTALL_PLUGIN_ANALYSIS_PHONETIC` - Install the analysis-phonetic plugin. Default: `true`
 - `INSTALL_PLUGIN_ANALYSIS_ICU` - Install the analysis-icu plugin. Default: `true`
 
@@ -32,8 +34,10 @@ Example:
 
 ```bash
 ddev dotenv set .ddev/.env.opensearch \
-    --opensearch-tag=2.15.0 \
-    --opensearch-dashboards-tag=2.15.0 \
+    --opensearch-tag=2.18.0 \
+    --opensearch-dashboards-tag=2.18.0 \
+    --sudachi-plugin-version=3.3.0 \
+    --sudachi-dict-version=20241021 \
     --install-plugin-analysis-phonetic=false \
     --install-plugin-analysis-icu=false
 
